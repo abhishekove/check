@@ -31,10 +31,10 @@ window.onload = () => {
 function staticLoadPlaces() {
     return [
         {
-            name: "Your place name",
+            name: "Kalamboli",
             location: {
-                lat: 44.493271, // change here latitude if using static data
-                lng: 11.326040, // change here longitude if using static data
+                lat: 19.027548, // change here latitude if using static data
+                lng: 73.100829, // change here longitude if using static data
             }
         },
     ];
