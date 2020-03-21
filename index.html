@@ -50,7 +50,7 @@
       gps-entity-place="latitude: 19.027583; longitude: 73.101085;"
       src="#my"
       scale="10 10 10"
-      onclick="onc(19.027583,73.101085)"
+      id="lat"
       ></a-image>
           <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
       <!-- <a-text
@@ -67,11 +67,17 @@
     <script>
     var x=document.getElementById("scsc");
 
-    function onc(lat,long){
-      x.setAttribute("democlass")
-      x.innerHTML=lat+""+long;
-      alert(lat+""+long);
-    }
+    // function onc(lat,long){
+    //   x.setAttribute("democlass")
+    //   x.innerHTML=lat+""+long;
+    //   alert(lat+""+long);
+    // }
+
+var d=document.getElementById("lat");
+d.addEventListener("click",function(){
+  alert("Hi")
+})
+
 
     </script>
   </body>
