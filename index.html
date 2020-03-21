@@ -9,6 +9,12 @@
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
 
+<style>
+  .democlass{
+    transform: translate(0px,-300px);
+  }
+</style>
+
     <script>
       var req =new XMLHttpRequest();
       req.open('GET','https://raw.githubusercontent.com/abhishekove/check/master/index.html',false);
@@ -16,24 +22,18 @@
       var dat=req.responseText.toString()
       console.log(dat[6]);
 
-      var x;
-      if (navigator.geolocation) {
-        x=navigator.getCurrentPosition(showPosition);
-      } else {
-        x="no loc"
-      }
-      function showPosition(position) {
-  console.log(position.coords);
-}
 
-      console.log(x);
+
+      // var window=document.getElementById("scc");
+
     </script>
   </head>
 
-  <body style="margin: 0; overflow: hidden;">
+  <body style="margin: 0;overflow: hidden; ">
     <a-scene
       vr-mode-ui="enabled: false"
       embedded
+      id="scc"
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
     <!-- <a-text value="Hello, World!"></a-text> -->
@@ -60,6 +60,18 @@
         gps-entity-place="latitude: 19.027583; longitude: 73.101085;"
       ></a-text> -->
       <a-camera gps-camera rotation-reader> </a-camera>
+
     </a-scene>
+    <p id="scsc">Hello World</p>
+    <!-- overflow: hidden; -->
+    <script>
+    var x=document.getElementById("scsc");
+
+    window.addEventListener('click',function(e){
+      console.log("correct");
+      x.setAttribute("class","democlass")
+    })
+
+    </script>
   </body>
 </html>
