@@ -15,6 +15,14 @@
       req.send(null);
       var dat=req.responseText.toString()
       console.log(dat[6]);
+
+      var x;
+      if (navigator.geolocation) {
+        x=navigator.getCurrentPosition(showPosition);
+      } else {
+        x="no loc"
+      }
+      console.log(x);
     </script>
   </head>
 
@@ -32,7 +40,7 @@
         gps-entity-place="latitude: 19.038849; longitude: 73.102612;"
       ></a-text> -->
       <a-assets>
-        <img id="my" src="mark.png" alt="" height="40" width="40">
+        <img id="my" src="mark.png" alt="" height="400" width="400">
       </a-assets>
       <a-image
       look-at="[gps-camera]"
