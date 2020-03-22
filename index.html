@@ -87,18 +87,24 @@
 var im=document.querySelector('a-image')
 im.addEventListener('click',function(eve){
   alert("EVEN")
+  console.log("EVEN");
+})
+var l=document.querySelector('img')
+l.addEventListener('click',function(eve){
+  console.log("ok");
+  alert("OK")
 })
 
 var fr=document.querySelector('a-scene');
-fr.addEventListener('click',function(eve){
-  alert("FRAME")
-  console.log("FRAME");
-})
+// fr.addEventListener('click',function(eve){
+//   alert("FRAME")
+//   console.log("FRAME");
+// })
 
-if (im) {
-  console.log("It is ok");
-  console.log(im);
-}
+console.log(l);
+// console.log(fr.querySelector("a-image"));
+
+
 
 var d=document.getElementById("my");
 d.addEventListener("click",function(e){
