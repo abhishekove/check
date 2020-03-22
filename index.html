@@ -42,7 +42,7 @@
         scale="10 10 10"
         gps-entity-place="latitude: 19.038849; longitude: 73.102612;"
       ></a-text> -->
-      <a-assets>
+      <a-assets id="as">
         <img id="my" src="mark.png" alt="" height="400" width="400">
       </a-assets>
       <a-image
@@ -72,15 +72,24 @@
     //   alert(lat+""+long);
     // }
 
-window.addEventListener("click",function(){
-  alert("Hi")
-})
+// window.addEventListener("click",function(){
+//   alert("Hi")
+// })
 
 var d=document.getElementById("my");
-d.addEventListener("click",function(){
-  alert("Hi")
+d.addEventListener("click",function(e){
+  alert("my")
 })
 
+var h=document.getElementById("lat")
+h.addEventListener("click",function(e){
+  alert("lat")
+})
+
+var a=document.getElementById("as")
+a.addEventListener("click",function(e){
+  alert("asset")
+})
 
     </script>
   </body>
