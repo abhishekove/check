@@ -22,7 +22,13 @@
       var dat=req.responseText.toString()
       console.log(dat[6]);
 
-
+      AFRAME.registerComponent('cursor-list',{
+        init:function(){
+          this.el.addEventListener('click',function(evt){
+            alert("CLICKED")
+          })
+        }
+      })
 
       // var window=document.getElementById("scc");
 
@@ -46,14 +52,14 @@
         <img id="my" src="mark.png"  alt="" height="400" width="400">
       </a-assets>
       <!-- <div id="cl"> -->
-        <!-- <a-image
+        <a-image
         look-at="[gps-camera]"
         gps-entity-place="latitude: 19.027583; longitude: 73.101085;"
         src="#my"
         scale="10 10 10"
         id="lat"
-        onclick="onc()"
-        ></a-image> -->
+        cursor-list
+        ></a-image>
       <!-- </div> -->
           <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
       <!-- <a-text
@@ -68,17 +74,18 @@
     <p id="scsc">Hello World</p>
     <script>
 
-var sce=document.querySelector('a-scene')
-var im=document.createElement('a-image')
-
-im.setAttribute('look-at','[gps-camera]')
-im.setAttribute('src','#my')
-im.setAttribute('scale','10 10 10')
-im.setAttribute('gps-entity-place','latitude: 19.027583; longitude: 73.101085;')
-sce.appendChild(im)
-im.addEventListener('click',function(eve){
-  alert("EVENT")
-})
+// var sce=document.querySelector('a-scene')
+// var im=document.createElement('a-image')
+//
+// im.setAttribute('look-at','[gps-camera]')
+// im.setAttribute('src','#my')
+// // im.setAttribute('scale','10 10 10')
+// im.setAttribute('gps-entity-place',{latitude:19.027583,longitude:73.101085})
+// sce.appendChild(im)
+// console.log(im);
+// im.addEventListener('click',function(eve){
+//   alert("EVENT")
+// })
     </script>
   </body>
 </html>
