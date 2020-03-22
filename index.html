@@ -42,18 +42,18 @@
         scale="10 10 10"
         gps-entity-place="latitude: 19.038849; longitude: 73.102612;"
       ></a-text> -->
-      <a-assets id="as" onclick="onc()">
-        <img id="my" src="mark.png" onclick="onc()" alt="" height="400" width="400">
+      <a-assets id="as" >
+        <img id="my" src="mark.png"  alt="" height="400" width="400">
       </a-assets>
       <!-- <div id="cl"> -->
-        <a-image
+        <!-- <a-image
         look-at="[gps-camera]"
         gps-entity-place="latitude: 19.027583; longitude: 73.101085;"
         src="#my"
         scale="10 10 10"
         id="lat"
         onclick="onc()"
-        ></a-image>
+        ></a-image> -->
       <!-- </div> -->
           <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
       <!-- <a-text
@@ -67,60 +67,18 @@
     </a-scene>
     <p id="scsc">Hello World</p>
     <script>
-    var x=document.getElementById("scsc");
-    // var di=document.getElementById("cl")
-    // di.addEventListener("click",function(e){
-    //   alert("DIV")
-    // })
-    // function onc(lat,long){
-    //   x.setAttribute("democlass")
-    //   x.innerHTML=lat+""+long;
-    //   alert(lat+""+long);
-    // }
-    function onc(){
-      alert("HI")
-    }
 
-// window.addEventListener("click",function(){
-//   alert("Hi")
-// })
-var im=document.querySelector('a-image')
+var sce=document.querySelector('a-scene')
+var im=document.createElement('a-image')
+
+im.setAttribute('look-at','[gps-camera]')
+im.setAttribute('src','#my')
+im.setAttribute('scale','10 10 10')
+im.setAttribute('gps-entity-place','latitude: 19.027583; longitude: 73.101085;')
+sce.appendChild(im)
 im.addEventListener('click',function(eve){
-  alert("EVEN")
-  console.log("EVEN");
+  alert("EVENT")
 })
-var l=document.querySelector('img')
-l.addEventListener('click',function(eve){
-  console.log("ok");
-  alert("OK")
-})
-
-var fr=document.querySelector('a-scene');
-// fr.addEventListener('click',function(eve){
-//   alert("FRAME")
-//   console.log("FRAME");
-// })
-
-console.log(l);
-// console.log(fr.querySelector("a-image"));
-
-
-
-var d=document.getElementById("my");
-d.addEventListener("click",function(e){
-  alert("my")
-})
-
-var h=document.getElementById("lat")
-h.addEventListener("click",function(e){
-  alert("lat")
-})
-
-var a=document.getElementById("as")
-a.addEventListener("click",function(e){
-  alert("asset")
-})
-
     </script>
   </body>
 </html>
