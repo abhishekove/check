@@ -23,9 +23,7 @@
       console.log(dat[6]);
 
 
-      function onc(){
-        alert("HI")
-      }
+
       // var window=document.getElementById("scc");
 
     </script>
@@ -44,8 +42,8 @@
         scale="10 10 10"
         gps-entity-place="latitude: 19.038849; longitude: 73.102612;"
       ></a-text> -->
-      <a-assets id="as">
-        <img id="my" src="mark.png" alt="" height="400" width="400">
+      <a-assets id="as" onclick="onc()">
+        <img id="my" src="mark.png" onclick="onc()" alt="" height="400" width="400">
       </a-assets>
       <a-image
       look-at="[gps-camera]"
@@ -74,6 +72,9 @@
     //   x.innerHTML=lat+""+long;
     //   alert(lat+""+long);
     // }
+    function onc(){
+      alert("HI")
+    }
 
 // window.addEventListener("click",function(){
 //   alert("Hi")
