@@ -30,9 +30,13 @@
         }
       })
 
-      // var window=document.getElementById("scc");
 
     </script>
+    <style>
+      .meee:hover{
+        background-color: green;
+      }
+    </style>
   </head>
 
   <body style="margin: 0;overflow: hidden; ">
@@ -42,12 +46,6 @@
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
     <!-- <a-text value="Hello, World!"></a-text> -->
-      <!-- <a-text
-        value="This content will always face you."
-        look-at="[gps-camera]"
-        scale="10 10 10"
-        gps-entity-place="latitude: 19.038849; longitude: 73.102612;"
-      ></a-text> -->
       <a-assets id="as" >
         <img id="my" src="mark.png"  alt="" height="400" width="400">
       </a-assets>
@@ -59,6 +57,7 @@
         scale="10 10 10"
         id="lat"
         cursor-list
+        class="meee"
         ></a-image>
       <!-- </div> -->
           <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
@@ -75,7 +74,8 @@
     <script>
 
 // var sce=document.querySelector('a-scene')
-// var im=document.createElement('a-image')
+var im=document.querySelector('a-image')
+console.log(im);
 //
 // im.setAttribute('look-at','[gps-camera]')
 // im.setAttribute('src','#my')
