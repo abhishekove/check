@@ -45,7 +45,7 @@
       <a-assets id="as" onclick="onc()">
         <img id="my" src="mark.png" onclick="onc()" alt="" height="400" width="400">
       </a-assets>
-      <div id="cl">
+      <!-- <div id="cl"> -->
         <a-image
         look-at="[gps-camera]"
         gps-entity-place="latitude: 19.027583; longitude: 73.101085;"
@@ -54,7 +54,7 @@
         id="lat"
         onclick="onc()"
         ></a-image>
-      </div>
+      <!-- </div> -->
           <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
       <!-- <a-text
         value="This content will always face."
@@ -84,6 +84,10 @@
 // window.addEventListener("click",function(){
 //   alert("Hi")
 // })
+var im=document.querySelector('a-image')
+im.addEventListener('click',function(eve){
+  alert("EVEN")
+})
 
 var d=document.getElementById("my");
 d.addEventListener("click",function(e){
