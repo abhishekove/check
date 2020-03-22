@@ -89,6 +89,17 @@ im.addEventListener('click',function(eve){
   alert("EVEN")
 })
 
+var fr=document.querySelector('a-scene');
+fr.addEventListener('click',function(eve){
+  alert("FRAME")
+  console.log("FRAME");
+})
+
+if (im) {
+  console.log("It is ok");
+  console.log(im);
+}
+
 var d=document.getElementById("my");
 d.addEventListener("click",function(e){
   alert("my")
