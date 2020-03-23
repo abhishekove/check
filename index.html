@@ -17,6 +17,8 @@
         init: function() {
             this.el.addEventListener('click', () => {
                 alert('Clicked!')
+                const ee=this.el
+                console.log(ee.attributes["gps-entity-place"].value);
             });
     }});
 </script>
@@ -32,7 +34,7 @@
         <a-assets id="as" >
           <img id="my" src="mark.png" class="meee" cursor-list  alt="">
         </a-assets>
-        
+
           <a-image
           look-at="[gps-camera]"
           clickhandler
