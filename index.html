@@ -16,9 +16,10 @@
     AFRAME.registerComponent('clickhandler', {
         init: function() {
             this.el.addEventListener('click', () => {
-                alert(this.el.attributes.name)
+                // alert(this.el.attributes.name)
                 const ee=this.el
-                console.log(ee.attributes["gps-entity-place"].value);
+                alert(ee.title);
+                console.log(ee.title);
             });
     }});
 </script>
