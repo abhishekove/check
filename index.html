@@ -16,7 +16,7 @@
     AFRAME.registerComponent('clickhandler', {
         init: function() {
             this.el.addEventListener('click', () => {
-                alert('Clicked!')
+                alert(this.el.attributes.name)
                 const ee=this.el
                 console.log(ee.attributes["gps-entity-place"].value);
             });
@@ -70,6 +70,13 @@
                   lng: 73.101085, // change here longitude if using static data
               }
           },
+          {
+            name:"DMART",
+            location:{
+              lat:19.028241,
+              lng:73.101462,
+            }
+          },
       ];
   }
 
@@ -86,7 +93,7 @@
           text.setAttribute('title', place.name);
           text.setAttribute('src', '#my');
           text.setAttribute('scale', '15 15 15');
-          // text.setAttribute('clickhandler','')
+          text.setAttribute('clickhandler','')
           text.addEventListener('loaded', () => {
               window.dispatchEvent(new CustomEvent('gps-entity-place-loaded', { detail: { component: this.el }}))
           });
