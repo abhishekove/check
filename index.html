@@ -1,97 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>GeoAR.js demo</title>
-    <!-- with location based, use aframe v0.9.2 -->
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-
-<style>
-  .democlass{
-    transform: translate(0px,-300px);
-  }
-</style>
-
-    <script>
-      var req =new XMLHttpRequest();
-      req.open('GET','https://raw.githubusercontent.com/abhishekove/check/master/index.html',false);
-      req.send(null);
-      var dat=req.responseText.toString()
-      console.log(dat[6]);
-
-      AFRAME.registerComponent('cursor-list',{
-        init:function(){
-          document.querySelector(#lat).addEventListener('click',function(evt){
-            alert("CLICKED")
-          })
-          document.querySelector(#my).addEventListener('click',function(evt){
-            alert("CLICKED")
-          })
-        }
-      })
-
+    <script src="index.js">
 
     </script>
-    <style>
-      .meee:hover{
-        background-color: green;
-      }
-    </style>
-  </head>
+</head>
 
-  <body style="margin: 0;overflow: hidden; ">
+<script>
+    AFRAME.registerComponent('clickhandler', {
+        init: function() {
+            this.el.addEventListener('click', () => {
+                alert('Clicked!')
+            });
+    }});
+</script>
+
+<body style='margin: 0; overflow: hidden;'>
     <a-scene
-      vr-mode-ui="enabled: false"
-      embedded
-      arjs="sourceType: webcam; debugUIEnabled: false;"
-    >
-    <!-- <a-text value="Hello, World!"></a-text> -->
-      <a-assets id="as" >
-        <img id="my" src="mark.png" class="meee" cursor-list  alt="" height="400" width="400">
-      </a-assets>
-      <!-- <div id="cl"> -->
-        <a-image
-        look-at="[gps-camera]"
-        gps-entity-place="latitude: 19.027583; longitude: 73.101085;"
-        src="#my"
-        scale="10 10 10"
-        id="lat"
-        cursor-list
-        class="meee"
-        ></a-image>
-      <!-- </div> -->
-          <!-- <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box> -->
-      <!-- <a-text
-        value="This content will always face."
-        look-at="[gps-camera]"
-        scale="10 10 10"
-        gps-entity-place="latitude: 19.027583; longitude: 73.101085;"
-      ></a-text> -->
-      <a-camera gps-camera rotation-reader> </a-camera>
+        cursor='rayOrigin: mouse; fuse: true; fuseTimeout: 0;'
+        raycaster="objects: [clickhandler];"
+        vr-mode-ui="enabled: false"
+		embedded
+		arjs='sourceType: webcam; debugUIEnabled: false;'>
 
-    </a-scene>
-    <p id="scsc">Hello World</p>
-    <script>
-
-// var sce=document.querySelector('a-scene')
-var im=document.querySelector('a-image')
-console.log(im);
-// window.addEventListener('click',function(e){
-//   alert(e.target.child)
-// })
-//
-// im.setAttribute('look-at','[gps-camera]')
-// im.setAttribute('src','#my')
-// // im.setAttribute('scale','10 10 10')
-// im.setAttribute('gps-entity-place',{latitude:19.027583,longitude:73.101085})
-// sce.appendChild(im)
-// console.log(im);
-// im.addEventListener('click',function(eve){
-//   alert("EVENT")
-// })
-    </script>
-  </body>
-</html>
+        <a-assets id="as" >
+          <img id="my" src="mark.png" class="meee" cursor-list  alt="">
+        </a-assets>
+        
+          <a-image
+          look-at="[gps-camera]"
+          clickhandler
+          gps-entity-place="latitude: 19.027583; longitude: 73.101085;"
+          src="#my"
+          scale="10 10 10"
+          id="lat"
+          class="meee"
+          ></a-image>
+        <a-camera gps-camera rotation-reader>
+		</a-camera>
+	</a-scene>
+</body>
