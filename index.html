@@ -49,7 +49,8 @@
 
   window.onload = () => {
       let method = 'dynamic';
-
+      var lattu;
+      var longii;
       // if you want to statically add places, de-comment following line:
       method = 'static';
 
@@ -61,8 +62,8 @@
 
 function showPosition(position) {
   // x.innerHTML = ;
-  var lattu=position.coords.latitude;
-  var longii=position.coords.longitude;
+   lattu=position.coords.latitude;
+   longii=position.coords.longitude;
     alert('https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord='+lattu+'|'+longii+'&gsradius=10000&format=json')
 }
 
