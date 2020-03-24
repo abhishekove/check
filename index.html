@@ -61,8 +61,10 @@
 
 function showPosition(position) {
   // x.innerHTML = ;
-  alert("Latitude: " + position.coords.latitude +
-  "Longitude: " + position.coords.longitude)
+  // alert("Latitude: " + position.coords.latitude +
+  // "Longitude: " + position.coords.longitude)
+  var lattu=position.coords.latitude;
+  var longii=position.coords.longitude;
 }
 
       if (method === 'static') {
@@ -73,7 +75,7 @@ function showPosition(position) {
           var req =new XMLHttpRequest();
       // req.open('GET','http://api.geonames.org/countryCodeJSON?lat=19.027583&lng=73.101085&username=abhishekove',false);
       //https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=37.7891838%7C-122.4033522&gsradius=10000&gslimit=10
-      req.open('GET','https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=19.027583|73.101085&gsradius=10000&format=json',false);
+      req.open('GET','https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=${lattu}|${longii}&gsradius=10000&format=json',false);
       req.send(null);
       var dat=req.response
       dat=JSON.parse(dat)
