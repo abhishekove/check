@@ -65,24 +65,25 @@ function showPosition(position) {
    lattu=position.coords.latitude;
    longii=position.coords.longitude;
     alert('https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord='+lattu+'|'+longii+'&gsradius=10000&format=json')
+    if (method === 'static') {
+        let places = staticLoadPlaces();
+
+        // console.log(places);
+        getLocation()
+        var req =new XMLHttpRequest();
+    // req.open('GET','http://api.geonames.org/countryCodeJSON?lat=19.027583&lng=73.101085&username=abhishekove',false);
+    //https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=37.7891838%7C-122.4033522&gsradius=10000&gslimit=10
+    req.open('GET','https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord='+lattu+'|'+longii+'&gsradius=10000&format=json',false);
+    req.send(null);
+    var dat=req.response
+    dat=JSON.parse(dat)
+    // console.log(dat.query.geosearch);
+    places=dat.query.geosearch
+    console.log(places);
+        return renderPlaces(places);
 }
 
-      if (method === 'static') {
-          let places = staticLoadPlaces();
 
-          // console.log(places);
-          getLocation()
-          var req =new XMLHttpRequest();
-      // req.open('GET','http://api.geonames.org/countryCodeJSON?lat=19.027583&lng=73.101085&username=abhishekove',false);
-      //https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=37.7891838%7C-122.4033522&gsradius=10000&gslimit=10
-      req.open('GET','https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord='+lattu+'|'+longii+'&gsradius=10000&format=json',false);
-      req.send(null);
-      var dat=req.response
-      dat=JSON.parse(dat)
-      // console.log(dat.query.geosearch);
-      places=dat.query.geosearch
-      console.log(places);
-          return renderPlaces(places);
       }
 
   };
