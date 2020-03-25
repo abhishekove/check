@@ -13,8 +13,6 @@
     <style media="screen">
 
 .fixed {
-  /* position: fixed;
-  width: 50%; */
   padding: 5px;
   bottom: 10px;
   border: 3px solid white;
@@ -33,12 +31,7 @@
     AFRAME.registerComponent('clickhandler', {
         init: function() {
             this.el.addEventListener('click', () => {
-                // alert(this.el.attributes.name)
                 const ee=this.el
-                // alert(ee.title);
-                // console.log(ee.title);
-                // sessionStorage.setItem('label','task')
-                // console.log(sessionStorage.getItem('label'));
                 changeVal(ee.title)
             });
     }});
@@ -55,16 +48,6 @@
         <a-assets id="as" >
           <img id="my" src="mark.png" class="meee" cursor-list  alt="">
         </a-assets>
-
-          <!-- <a-image
-          look-at="[gps-camera]"
-          clickhandler
-          gps-entity-place="latitude: 19.027583; longitude: 73.101085;"
-          src="#my"
-          scale="10 10 10"
-          id="lat"
-          class="meee"
-          ></a-image> -->
         <a-camera gps-camera rotation-reader>
 		</a-camera>
 	</a-scene>
@@ -95,7 +78,6 @@
   inf.send(null);
   var dat=inf.response
   dat=JSON.parse(dat)
-  // console.log(dat.query);
   var tra=dat.query.search
   tra.forEach((pl)=>{
     if (pl.title==par.innerHTML) {
@@ -119,10 +101,8 @@
 }
 
 function showPosition(position) {
-  // x.innerHTML = ;
    lattu=position.coords.latitude;
    longii=position.coords.longitude;
-    alert('https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord='+lattu+'|'+longii+'&gsradius=10000&format=json')
     if (method === 'static') {
         let places = staticLoadPlaces();
 
@@ -130,12 +110,10 @@ function showPosition(position) {
 
         var req =new XMLHttpRequest();
     // req.open('GET','http://api.geonames.org/countryCodeJSON?lat=19.027583&lng=73.101085&username=abhishekove',false);
-    //https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=37.7891838%7C-122.4033522&gsradius=10000&gslimit=10
     req.open('GET','https://cors-anywhere.herokuapp.com/https://en.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord='+lattu+'|'+longii+'&gsradius=10000&format=json',false);
     req.send(null);
     var dat=req.response
     dat=JSON.parse(dat)
-    // console.log(dat.query.geosearch);
     places=dat.query.geosearch
     console.log(places);
         return renderPlaces(places);
